@@ -230,6 +230,7 @@
     <Content Include="Views\City\AddCity.cshtml" />
     <Content Include="Views\City\UpdateCity.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Category\UpdateCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

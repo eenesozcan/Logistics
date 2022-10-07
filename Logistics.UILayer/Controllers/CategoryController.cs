@@ -41,5 +41,22 @@ namespace Logistics.UILayer.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+
+        public ActionResult UpdateCategory(int id)
+        {
+            var values = dB.TblCategory.Find(id);
+            return View(values);
+        }
+
+
+        public ActionResult UpdateCategory(TblCategory p)
+        {
+            var values = dB.TblCategory.Find(p.CategoryID);
+            values.CategoryName=p.CategoryName;
+            dB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

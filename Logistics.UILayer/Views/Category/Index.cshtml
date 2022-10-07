@@ -6,6 +6,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int sayac = 0;
 }
 
 <h2>Kategori listesi</h2>
@@ -22,12 +24,13 @@
     
     @foreach (var item in Model)
     {
+                sayac = sayac + 1;
         <tr>
-            <td>@item.CategoryID</td>
+            <td>@sayac</td>
             <td>@item.CategoryName</td>
             <td>@item.CategoryStatus</td>
             <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a>   </td>
-            <td><a href="" class="btn btn-success">Güncelle</a>   </td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a>   </td>
         </tr>
     }
 
@@ -35,4 +38,4 @@
 
 
 </table>
-<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori</a>
+<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Girişi</a>

@@ -1,0 +1,20 @@
+﻿@model Logistics.UILayer.Models.TblCategory
+
+
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UpdateCategory</h2>
+
+<form method="post">
+    @*<label>Şehir ID</label>*@
+    <input type="hidden" name="CategoryID" class="form-control" value="@Model.CategoryID" />
+
+    <br />
+    <label>Kategori Adı</label>
+    <input type="text" name="CategoryName" class="form-control" " value="@Model.CategoryName" />
+    <br />
+    <button class="btn btn-primary">Kategori Güncelle</button>
+</form>
