@@ -14,8 +14,11 @@ namespace Logistics.UILayer.Controllers
 
         public ActionResult Index()
         {
-            var values = dB.TblCategory.ToList();
-            
+            //var values = dB.TblCategory.ToList();
+            //var values = dB.TblCategory.OrderByDescending(s => s.CategoryName).ToList();
+
+            var values = dB.TblCategory.OrderBy(s => s.CategoryName).ToList();
+
             return View(values);
         }
 

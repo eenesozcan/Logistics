@@ -2,6 +2,21 @@
 @{
     Layout = null;
 }
+
+@*Arama textbox'ı için'*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInputSearch").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTableSearch tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+@*Arama textbox'ı için*@
+
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <!DOCTYPE html>
 <html>

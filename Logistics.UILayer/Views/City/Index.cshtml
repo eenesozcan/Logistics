@@ -7,13 +7,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
     int sayac = 0;
-
-
 }
 
-
-
 <h2>Şehirler</h2>
+
+<input class="form-control" id="myInputSearch" type="text" placeholder="Arama...">
+<br>
 
 <table class="table table-bordered">
     <tr>
@@ -23,16 +22,19 @@
         <th>Güncelle</th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        sayac = sayac + 1;
-        <tr>
-            <td>@sayac</td>
-            <td>@item.CityName</td>
-            <td><a href="/City/DeleteCity/@item.CityID" class="btn btn-danger">Sil</a>   </td>
-            <td><a href="/City/UpdateCity/@item.CityID" class="btn btn-success">Güncelle</a>   </td>
-        </tr>
-    }
+    <tbody id="myTableSearch">
+
+        @foreach (var item in Model)
+        {
+            sayac = sayac + 1;
+            <tr>
+                <td>@sayac</td>
+                <td>@item.CityName</td>
+                <td><a href="/City/DeleteCity/@item.CityID" class="btn btn-danger">Sil</a>   </td>
+                <td><a href="/City/UpdateCity/@item.CityID" class="btn btn-success">Güncelle</a>   </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 <a href="/City/AddCity/" class="btn btn-primary">Yeni Şehir Girişi</a>

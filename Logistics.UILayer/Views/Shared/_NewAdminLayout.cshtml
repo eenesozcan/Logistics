@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+@*Arama textbox'ı için'*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInputSearch").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTableSearch tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+@*Arama textbox'ı için*@
+<!DOCTYPE HTML>
+<html>
+@Html.Partial("/Views/Admin/PartialHead.cshtml")
+<body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-content">
+                @Html.Partial("/Views/Admin/PartialNavbar.cshtml")
+                <div class="content">
+                    <div class="women_main">
+                        <div class="w_content">
+                            <div class="women">
+                                <a href="#"><h4>Enthecwear - <span>4449 items</span> </h4></a>
+                                <ul class="w_nav">
+                                    <li>Sort : </li>
+                                    <li><a class="active" href="#">popular</a></li> |
+                                    <li><a href="#">new </a></li> |
+                                    <li><a href="#">discount</a></li> |
+                                    <li><a href="#">price: Low High </a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            @RenderBody()
+                        </div>
+                        <div class="clearfix"></div>
+                        @Html.Partial("/Views/Admin/PartialSubscribe.cshtml")
+                        @Html.Partial("/Views/Admin/PartialFooter.cshtml")
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("/Views/Admin/PartialSidebar.cshtml")
+
+        <div class="clearfix"></div>
+    </div>
+    @Html.Partial("/Views/Admin/PartialScript.cshtml")
+</body>
+</html>
+

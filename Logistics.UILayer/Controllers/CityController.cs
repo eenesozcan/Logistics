@@ -57,5 +57,8 @@ namespace Logistics.UILayer.Controllers
             dB.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
     }
 }

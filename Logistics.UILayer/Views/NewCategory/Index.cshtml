@@ -1,0 +1,39 @@
+﻿@using Logistics.UILayer.Models
+@model List<TblCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    int sayac = 0;
+}
+
+<h2>Kategori listesi</h2>
+
+<input class="form-control" id="myInputSearch" type="text" placeholder="Arama...">
+<br>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    <tbody id="myTableSearch">
+        @foreach (var item in Model)
+        {
+            sayac = sayac + 1;
+            <tr>
+                <td>@sayac</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryStatus</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a>   </td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a>   </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Girişi</a>
+
