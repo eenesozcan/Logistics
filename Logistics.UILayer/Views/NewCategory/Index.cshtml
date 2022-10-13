@@ -6,6 +6,12 @@
     int sayac = 0;
 }
 
+@{ 
+    string durum;
+
+}  
+
+
 <h2>Kategori listesi</h2>
 
 <input class="form-control" id="myInputSearch" type="text" placeholder="Arama...">
@@ -27,9 +33,16 @@
             <tr>
                 <td>@sayac</td>
                 <td>@item.CategoryName</td>
-                <td>@item.CategoryStatus</td>
-                <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a>   </td>
-                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a>   </td>
+                @if (@item.CategoryStatus == true)
+                {
+                    <td>Aktif</td>
+                }
+                else
+                {
+                    <td>Pasif</td>
+                }
+                <td><a href="/NewCategory/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a>   </td>
+                <td><a href="/NewCategory/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a>   </td>
             </tr>
         }
     </tbody>

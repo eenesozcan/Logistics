@@ -16,5 +16,54 @@ namespace Logistics.UILayer.Controllers
             var values = dB.TblCategory.ToList();
             return View(values);
         }
+
+
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public ActionResult AddCategory(TblCategory p)
+        {
+            dB.TblCategory.Add(p);
+            dB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+
+        public ActionResult DeleteCategory(int id)
+        {
+            var values = dB.TblCategory.Find(id);
+            dB.TblCategory.Remove(values);
+            dB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var values = dB.TblCategory.Find(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCategory(TblCategory p)
+        {
+            var values = dB.TblCategory.Find(p.CategoryID);
+            values.CategoryName = p.CategoryName;
+            dB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
