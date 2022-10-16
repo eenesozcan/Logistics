@@ -1,0 +1,21 @@
+﻿@model Logistics.UILayer.Models.TblCustomer
+
+
+
+@{
+    ViewBag.Title = "UpdateProfile";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h2>UpdateProfile</h2>
+
+
+<form method="post">
+    <input type="hidden" name="CustomerName" class="form-control" value="@Model.CustomerName" />
+
+    <br />
+    <label>Müşteri Adı</label>
+    <input type="text" name="CustomerName" class="form-control" " value="@Model.CustomerName" />
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</form>

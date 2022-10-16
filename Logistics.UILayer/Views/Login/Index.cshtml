@@ -1,4 +1,5 @@
-﻿
+﻿@using Logistics.UILayer.Models
+@model List<TblCustomer>
 
 @{
     Layout = null;
@@ -25,11 +26,18 @@
                     <div class="clear"> </div>
                 </div>
                 <div class="text">
-                    <input type="password" placeholder="Şifrenizi giriniz.." required="" name="CustomerPassword" />
-                    <span class="men"></span>
+                    <input type="password" placeholder="şifrenizi giriniz" required="" name="CustomerPassword" />
                     <div class="clear"> </div>
                 </div>
 
+                <div class="text">
+                    <input type="checkbox" name="Rememberme" />
+                    <div class="clear"> </div>
+                </div>
+
+                <p>@ViewBag.v1</p>
+                <h2>@ViewBag.v1</h2>
+                @Html.Raw(TempData["msg"])
 
 
 

@@ -7,6 +7,9 @@ using Logistics.UILayer.Models;
 
 namespace Logistics.UILayer.Controllers
 {
+
+    [Authorize]
+
     public class StatisticsController : Controller
     {
 

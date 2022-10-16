@@ -7,6 +7,13 @@ namespace Logistics.UILayer
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+
+            // *Authorize  -  Giriş yapmadan hiç bir sayfa açılamasın
+            filters.Add(new AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());
+            //
+
+
             filters.Add(new HandleErrorAttribute());
         }
     }
