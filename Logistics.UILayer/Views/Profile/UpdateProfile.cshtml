@@ -11,11 +11,23 @@
 
 
 <form method="post">
-    <input type="hidden" name="CustomerName" class="form-control" value="@Model.CustomerName" />
+    <input type="hidden" name="CustomerID" class="form-control" value="@Model.CustomerID" />
 
     <br />
     <label>Müşteri Adı</label>
-    <input type="text" name="CustomerName" class="form-control" " value="@Model.CustomerName" />
+    <input type="text" name="CustomerName" class="form-control" value="@Model.CustomerName" />
+    <br />
+    <label>Müşteri Soyadı</label>
+    <input type="text" name="CustomerSurname" class="form-control" value="@Model.CustomerSurname" />
+    <br />
+    <label>Müşteri Telefon Numarası</label>
+    <input type="text" name="CustomerPhone" class="form-control" value="@Model.CustomerPhone" />
+    <br />
+    <label>Müşteri Mail Adresi</label>
+    <input type="text" name="CustomerMail" class="form-control" value="@Model.CustomerMail" />
+    <br />
+    <label>Müşteri Şifresi</label>
+    <input type="text" name="CustomerPassword" class="form-control" value="@Model.CustomerPassword" />
     <br />
     <button class="btn btn-primary">Güncelle</button>
 </form>

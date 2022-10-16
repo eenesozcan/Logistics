@@ -24,6 +24,7 @@ namespace Logistics.UILayer.Controllers
             ViewBag.v2 = values.CustomerSurname;
             ViewBag.v3 = values.CustomerMail;
             ViewBag.v4 = values.CustomerPhone;
+            ViewBag.v5 = values.CustomerID;
             return View();
 
 
@@ -31,11 +32,35 @@ namespace Logistics.UILayer.Controllers
 
         }
 
-
+        [HttpGet]
         public ActionResult UpdateProfile(int id)
         {
             var values = dB.TblCustomer.Find(id);
             return View(values);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProfile(TblCustomer p)
+        {
+            var values = dB.TblCustomer.Find(p.CustomerID);
+            values.CustomerName = p.CustomerName;
+            values.CustomerSurname = p.CustomerSurname;
+            values.CustomerPhone = p.CustomerPhone;
+            if (values.CustomerMail!= p.CustomerMail || values.CustomerPassword != p.CustomerPassword)
+            {
+                values.CustomerMail = p.CustomerMail;
+                values.CustomerPassword = p.CustomerPassword;
+                dB.SaveChanges();
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                values.CustomerMail = p.CustomerMail;
+                values.CustomerPassword = p.CustomerPassword;
+                dB.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

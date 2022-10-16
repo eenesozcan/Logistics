@@ -1,4 +1,5 @@
-﻿
+﻿@using Logistics.UILayer.Models
+@model List<TblCustomer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
@@ -8,12 +9,15 @@
 
 <br />
 
+<h4>Id: @ViewBag.v5</h4>
 <h4>Hoşgeldiniz: @ViewBag.v1 @ViewBag.v2</h4>
 <h5>Mail Adresiniz: @ViewBag.v3</h5>
 <h5>Telefon numaranız: @ViewBag.v4</h5>
 
 <br />
 
-<a href="/Profile/UpdateProfile/" class="btn btn-success">Bilgileri Güncelle</a>
+<a href="/Profile/UpdateProfile/@ViewBag.v5" class="btn btn-success">Bilgileri Güncelle</a>
+
+
 
 
